@@ -18,9 +18,9 @@ const HeroSection = () => {
 						<TypeAnimation
 							sequence={[
 								"Web Developer",
-								1000,
+								2000, // duration of text before change. In ms (1000 ms = 1 s)
 								"Software Developer",
-								1000,
+								2000,
 							]}
 							wrapper="span"
 							speed={25}
