@@ -1,11 +1,15 @@
 import Image from "next/image";
 import HeroSection from "./components/HeroSection";
+import Navbar from "./components/Navbar";
+import AboutSection from "./components/AboutSection";
 
 export default function Home() {
 	return (
 		<main className="flex min-h-screen flex-col">
-			<div className="mx-auto py-4 px-12 container">
+			<Navbar />
+			<div className="mt-24 mx-auto py-4 px-12 container">
 				<HeroSection />
+				<AboutSection />
 			</div>
 		</main>
 	);
