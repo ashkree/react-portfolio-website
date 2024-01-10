@@ -1,7 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
+import { motion, useInView } from "framer-motion";
 
 const PROJECTS_DATA = [
 	{
@@ -17,6 +18,8 @@ const PROJECTS_DATA = [
 
 const ProjectSection = () => {
 	const [tag, setTag] = useState("All");
+	const ref = useRef(null);
+	const isInView = useInView(ref, { once: true });
 
 	const handleTagChange = (newTag) => {
 		setTag(newTag);
@@ -26,8 +29,13 @@ const ProjectSection = () => {
 		project.tag.includes(tag)
 	);
 
+	const cardVariants = {
+		initial: { y: 50, opacity: 0 },
+		animate: { y: 0, opacity: 1 },
+	};
+
 	return (
-		<>
+		<section id="projects">
 			<h3 className=" text-center font-bold mb-3 text-2xl sm:text-3xl lg:text-4xl">
 				My Projects
 			</h3>
@@ -43,19 +51,30 @@ const ProjectSection = () => {
 					isSelected={tag === "Web"}
 				/>
 			</div>
-			<div className="grid md:grid-cols-3 gap-8 md:gap-12">
-				{filteredProjects.map((project) => (
-					<ProjectCard
-						key={project.id}
-						title={project.title}
-						desc={project.desc}
-						imgUrl={project.image}
-						gitUrl={project.gitUrl}
-						previewUrl={project.previewUrl}
-					/>
+			<ul
+				ref={ref}
+				className="grid md:grid-cols-3 gap-8 md:gap-12"
+			>
+				{filteredProjects.map((project, index) => (
+					<motion.li
+						key={index}
+						variants={cardVariants}
+						initial="initial"
+						animate={isInView ? "animate" : "initial"}
+						transition={{ duration: 0.3, delay: index * 0.4 }}
+					>
+						<ProjectCard
+							key={project.id}
+							title={project.title}
+							desc={project.desc}
+							imgUrl={project.image}
+							gitUrl={project.gitUrl}
+							previewUrl={project.previewUrl}
+						/>
+					</motion.li>
 				))}
-			</div>
-		</>
+			</ul>
+		</section>
 	);
 };
 export default ProjectSection;

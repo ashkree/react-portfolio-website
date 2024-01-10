@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavLink from "./NavLink";
 import MenuOverlay from "./MenuOverlay";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
@@ -24,11 +24,11 @@ const Navbar = () => {
 	const [navbarOpen, setNavbarOpen] = useState(false);
 
 	return (
-		<nav className="fixed top-0 left-0 right-0 z-10 bg-[#141414] bg-opacity-90">
+		<nav className="fixed top-0 left-0 right-0 z-10 bg-[#141414]">
 			<div className="flex container flex-wrap items-center justify-between mx-auto lg:py-4 ">
 				<Link
 					href="/"
-					className="text-2xl md:text-5xl text-white font-semibold"
+					className="text-2xl md:text-4xl text-white font-semibold"
 				>
 					LOGO
 				</Link>
