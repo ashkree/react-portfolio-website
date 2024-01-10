@@ -1,44 +1,35 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import GithubIcon from "../../../public/images/socials_icons/github-icon.svg";
 import LinkedInIcon from "../../../public/images/socials_icons/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
+import emailjs from "@emailjs/browser";
 
 const EmailSection = () => {
 	const [emailSubmitted, setEmailSubmitted] = useState(false);
+	const form = useRef();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		/* TODO: Delete comment when API key is generated from Resend.com */
-
-		/* 
-		const data = {
-			email: e.target.email.value,
-			subject: e.target.subject.value,
-			message: e.target.message.value,
-		};
-
-		const JSONdata = JSON.stringify(data);
-		const endpoint = "/api/send";
-
-		const options = {
-			method: "POST",
-			header: { "Content-Type": "application/json" },
-			body: JSONdata,
-		};
-
-		const response = await fetch(endpoint, options);
-		const resData = await response.json();
-
-		if (resData.status === "200") {
-			console.log("message sent.");
-			setEmailSubmitted(True);
-		}
-        */
-
-		setEmailSubmitted(True);
+		emailjs
+			.sendForm(
+				"service_nbwp5ur",
+				"template_4hgjdas",
+				form.current,
+				"WRQegabE2RfQ9TGg_"
+			)
+			.then(
+				(result) => {
+					setEmailSubmitted(true);
+					console.log(result.text);
+					// e.target.reset();
+				},
+				(error) => {
+					console.log(error.text);
+				}
+			);
 	};
 
 	return (
@@ -81,18 +72,37 @@ const EmailSection = () => {
 				<form
 					className="flex flex-col gap-6"
 					onSubmit={handleSubmit}
+					ref={form}
 				>
+					{/* Name Section */}
+					<div>
+						<label
+							className="block text-sm mb-2 font-medium"
+							htmlFor="user_name"
+						>
+							Your Name
+						</label>
+						<input
+							className="bg-[#191917] border border-gray-800 placeholder-gray-300 text-gray-200 text-sm rounded-lg block w-full p-2.5"
+							name="user_name"
+							type="text"
+							id="name"
+							required
+							placeholder="John Doe"
+						/>
+					</div>
+
 					{/* Email Section */}
 					<div>
 						<label
 							className="block mb-2 text-sm font-medium"
-							htmlFor="email"
+							htmlFor="user_email"
 						>
 							Your Email
 						</label>
 						<input
 							className="bg-[#191917] border border-gray-800 placeholder-gray-300 text-gray-200 text-sm rounded-lg block w-full p-2.5"
-							name="email"
+							name="user_email"
 							type="email"
 							id="email"
 							required
@@ -100,25 +110,7 @@ const EmailSection = () => {
 						/>
 					</div>
 
-					{/* Subject Section */}
-					<div>
-						<label
-							className="block text-sm mb-2 font-medium"
-							htmlFor="subject"
-						>
-							Subject
-						</label>
-						<input
-							className="bg-[#191917] border border-gray-800 placeholder-gray-300 text-gray-200 text-sm rounded-lg block w-full p-2.5"
-							name="subject"
-							type="text"
-							id="subject"
-							required
-							placeholder="Hello there!"
-						/>
-					</div>
-
-					{/* Subject Section */}
+					{/* Message Section */}
 					<div>
 						<label
 							className="block text-sm mb-2 font-medium"
