@@ -48,10 +48,10 @@ const EmailSection = () => {
 					</span>
 				</h1>
 				<p className="text-gray-200 mb-4 max-w-md">
-					I'm currently looking for new opportunities to hone and
+					I&apos;m currently looking for new opportunities to hone and
 					apply my skills. My inbox is always open! Send me a message
-					if you have any questions or just want to say hi, I'll do my
-					best to get back to you!
+					if you have any questions or just want to say hi, I&apos;ll
+					do my best to get back to you!
 				</p>
 				<div className=" socials flex flex-row gap-2 ">
 					<Link href="https://github.com/ashkree">

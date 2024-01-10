@@ -16,7 +16,7 @@ const HeroSection = () => {
 				>
 					<h1 className="mb-3 text-4xl sm:text-5xl lg:text-6xl lg:leading-normal font-extrabold">
 						<span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-primary-500">
-							Hello, I'm {"\n"}
+							Hello, I&apos;m {"\n"}
 						</span>
 						Maveron
 					</h1>

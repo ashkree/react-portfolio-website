@@ -34,7 +34,7 @@ const TAB_DATA = [
 			<ul className="list-disc pt-2">
 				<li>
 					Website Development Intern - University of Stilring
-					Students' Union
+					Students&apos; Union
 				</li>
 			</ul>
 		),
