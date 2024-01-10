@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 
@@ -33,19 +34,24 @@ const HeroSection = () => {
 							repeat={Infinity}
 						/>
 					</h2>
-					<p className="text-[#ADB7BE] mb-6 text-base sm:text-lg lg:text-xl">
-						Lorem ipsum dolor, sit amet consectetur adipisicing
-						elit.
-					</p>
-					<div>
-						<button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-purple-500 via-violet-500 to-primary-500 text-white">
-							Hire me
-						</button>
-						<button className="px-1 py-1 mt-3 w-full sm:w-fit rounded-full bg-gradient-to-br from-purple-500 via-violet-500 to-primary-500 hover:bg-slate-800">
-							<span className="block bg-[#141414] rounded-full px-5 py-2">
-								Download CV
+					<div className="py-5">
+						<Link
+							href="#contact"
+							className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-purple-500 via-violet-500 to-primary-500 text-white"
+						>
+							Connect with me
+						</Link>
+
+						<Link
+							href="/resources/Curriculum Vitae.pdf"
+							target="_blank"
+							download
+							className="px-1 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-purple-500 via-violet-500 to-primary-500 text-white"
+						>
+							<span className="bg-[#141414] rounded-full px-5 py-2">
+								Download my CV
 							</span>
-						</button>
+						</Link>
 					</div>
 				</motion.div>
 				<motion.div
