@@ -33,7 +33,7 @@ const TAB_DATA = [
 		content: (
 			<ul className="list-disc pt-2">
 				<li>
-					Website Development Intern - University of Stilring
+					Website Development Intern - University of Stirling
 					Students&apos; Union
 				</li>
 			</ul>
@@ -54,6 +54,7 @@ const AboutSection = () => {
 			<div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
 				<Image
 					src="/images/AboutImage.png"
+					alt=""
 					height={500}
 					width={500}
 				></Image>

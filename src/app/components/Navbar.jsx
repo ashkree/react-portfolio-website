@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import NavLink from "./NavLink";
 import MenuOverlay from "./MenuOverlay";
+import Logo from "./Logo";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 
 const navLinks = [
@@ -30,7 +31,7 @@ const Navbar = () => {
 					href="/"
 					className="text-2xl md:text-4xl text-white font-semibold"
 				>
-					LOGO
+					<Logo />
 				</Link>
 				<div className="mobile-menu block md:hidden">
 					{!navbarOpen ? (
